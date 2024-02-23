@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+   <style>
+body {
+    background-color:#CCE5FF;
+    font-family: Arial, sans-serif;
+    margin:80px;
+}
+
+.container {
+border:3px solid;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input {
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #C0C0C0;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login Form</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="message"></p>
+    </div>
+    <script>
+
+const users = [
+    { username: 'admin', password: 'password' },
+    { username: 'user', password: '12345' }
+];
+
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        document.getElementById('message').innerText = 'Login successful! Redirecting...';
+        // Add code to redirect to secured page
+    } else {
+        document.getElementById('message').innerText = 'Invalid username or password';
+    }
+}
+</script>
+</body>
+</html>
